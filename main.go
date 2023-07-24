@@ -14,7 +14,7 @@ type ContactDetails struct {
 func myHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("forms.html"))
 
-	if r.Method != http.MethodPost {
+	if r.Method != http.MethodPost { // HTTPメソッドをチェック（POSTのみ許可）
 		tmpl.Execute(w, nil)
 		return
 	}
